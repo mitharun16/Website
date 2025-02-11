@@ -8,12 +8,28 @@
   </head>
   <body>
     <div id="valentineQuestion"><b>Leha, Will you be my valentine?</b></div>
-    <button class="answerButton" onclick="location.href='thankyou.html'">
+    <button class="answerButton pulse" onclick="location.href='thankyou.html'">
       Yes
     </button>
-    <button class="answerButton" id="noButton">No</button>
+    <button class="answerButton pulse" id="noButton">No</button>
     <br />
     <img src="cat.gif" alt="cat asking question" class="responsive" />
+
+    <div class="hearts">
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+    </div>
+
+    <div class="flowers">
+      <div class="flower"></div>
+      <div class="flower"></div>
+      <div class="flower"></div>
+      <div class="flower"></div>
+      <div class="flower"></div>
+    </div>
 
     <script>
       document
@@ -25,7 +41,7 @@
           var currentFontSize = parseInt(
             window.getComputedStyle(yesButton).fontSize
           );
-          yesButton.style.fontSize = currentFontSize + 10 + "px"; // Increase font size by 5px
+          yesButton.style.fontSize = currentFontSize + 10 + "px"; // Increase font size by 10px
         });
     </script>
   </body>
