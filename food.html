@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Selection</title>
+    <link rel="stylesheet" href="css/food.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div id="foodquestion"><b>What cuisine would you like to eat?</b></div>
+      <div class="food-selection">
+        <div class="food-item" style="animation-delay: 0s;">
+          <img src="food/indian.jpeg" alt="Indian food" />
+          <label><input type="radio" name="food" value="Indian" /> Indian</label>
+          <p class="description">Enjoy the rich and diverse flavors of Indian cuisine.</p>
+        </div>
+        <div class="food-item" style="animation-delay: 0.5s;">
+          <img src="food/koreanfood.jpeg" alt="Korean food" />
+          <label><input type="radio" name="food" value="Korean" /> Korean</label>
+          <p class="description">Experience the bold and spicy tastes of Korean dishes.</p>
+        </div>
+        <div class="food-item" style="animation-delay: 1s;">
+          <img src="food/mexican.jpeg" alt="Mexican food" />
+          <label><input type="radio" name="food" value="Mexican" /> Mexican</label>
+          <p class="description">Indulge in the vibrant and zesty tastes of Mexican cuisine.</p>
+        </div>
+        <div class="food-item" style="animation-delay: 1.5s;">
+          <img src="food/burgers.jpeg" alt="American food" />
+          <label><input type="radio" name="food" value="American" /> American</label>
+          <p class="description">Relish the classic and comforting flavors of American food.</p>
+        </div>
+        <div class="food-item" style="animation-delay: 2s;">
+          <img src="food/sushi.jpeg" alt="Japanese food" />
+          <label><input type="radio" name="food" value="Japanese" /> Japanese</label>
+          <p class="description">Delight in the delicate and umami-rich tastes of Japanese cuisine.</p>
+        </div>
+        <div class="food-item" style="animation-delay: 2.5s;">
+          <img src="food/mediterranean.jpeg" alt="Mediterranean food" />
+          <label><input type="radio" name="food" value="Mediterranean" /> Mediterranean</label>
+          <p class="description">Enjoy the fresh and healthy flavors of Mediterranean dishes.</p>
+        </div>
+      </div>
+      <button class="button" onclick="saveFoodChoice()">Desserts</button>
+    </div>
+    <div class="hearts">
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Retrieve the saved choice from localStorage
+        const savedChoice = localStorage.getItem("selectedFood");
+        if (savedChoice) {
+          const radioButtons = document.querySelectorAll('input[name="food"]');
+          radioButtons.forEach(radio => {
+            if (radio.value === savedChoice) {
+              radio.checked = true;
+            }
+          });
+        }
+      });
+
+      function saveFoodChoice() {
+        // Save the selected choice to localStorage
+        const selectedFood = document.querySelector('input[name="food"]:checked').value;
+        localStorage.setItem("selectedFood", selectedFood);
+        // Navigate to the next page
+        location.href = 'dessert.html';
+      }
+    </script>
+  </body>
+</html>

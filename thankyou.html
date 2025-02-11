@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You</title>
+    <link rel="stylesheet" href="css/thankyou.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div id="thankyou"><b>Thank you for accepting to be my Valentine!</b></div>
+      <img id="rizz" src="https://media.tenor.com/9TKxcyxQQxIAAAAM/cat-dance-dancing-cat.gif" alt="rizzler god" class="responsive" />
+      <br />
+      <h1>Don't go yet!</h1>
+      <button class="button" onclick="location.href='activities.html'">
+        Click me to go on a date with me!
+      </button>
+      <div class="card">
+        <div class="message">
+          <p>I'm so excited to call you my Valentine. Let's make it unforgettable!</p>
+          <p>Here's a little poem for you:</p>
+          <blockquote>
+            Roses are red,<br>
+            Violets are blue,<br>
+            I'm so happy,<br>
+            To be with you.
+          </blockquote>
+        </div>
+      </div>
+      <button class="button" onclick="toggleLetter()">Read my letter to you</button>
+      <div class="letter" id="letter">
+        <h2>My Dearest Love,</h2>
+        <p>
+          I am so grateful to have you in my life. You bring so much joy and happiness to my days. 
+          Every moment spent with you is a treasure, and I cherish every memory we create together.
+        </p>
+        <p>
+          On this special day, I want to remind you how much you mean to me. You are my rock, my confidant, 
+          and my best friend. I look forward to many more adventures and beautiful moments with you.
+        </p>
+        <p>
+          Thank you for being you and for loving me. I love you more than words can express.
+        </p>
+        <p>
+          Forever yours,<br>
+          Tharun Imayavaramban
+        </p>
+      </div>
+    </div>
+    <div class="hearts">
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+    </div>
+    <script>
+      function toggleLetter() {
+        var letter = document.getElementById("letter");
+        if (letter.style.display === "none" || letter.style.display === "") {
+          letter.style.display = "block";
+        } else {
+          letter.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

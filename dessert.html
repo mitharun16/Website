@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dessert</title>
+    <link rel="stylesheet" href="css/dessert.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="dessertquestion"><b>Which dessert would you like to eat?</b></div>
+      <div class="dessert-selection">
+        <div class="dessert-item" style="animation-delay: 0s;">
+          <img src="food/boba.jpeg" alt="boba" />
+          <label><input type="radio" name="dessert" value="boba" /> Boba</label>
+        </div>
+        <div class="dessert-item" style="animation-delay: 0.5s;">
+          <img src="food/tiramisu.jpeg" alt="tiramisu" />
+          <label><input type="radio" name="dessert" value="tiramisu" /> Tiramisu</label>
+        </div>
+        <div class="dessert-item" style="animation-delay: 1s;">
+          <img src="food/froyo.jpeg" alt="froyo" />
+          <label><input type="radio" name="dessert" value="froyo" /> Froyo</label>
+        </div>
+        <div class="dessert-item" style="animation-delay: 1.5s;">
+          <img src="food/icecream.jpeg" alt="ice cream" />
+          <label><input type="radio" name="dessert" value="ice cream" /> Ice Cream</label>
+        </div>
+        <div class="dessert-item" style="animation-delay: 2s;">
+          <img src="food/rasmalai.jpeg" alt="rasmalai" />
+          <label><input type="radio" name="dessert" value="rasmalai" /> Rasmalai</label>
+        </div>
+        <div class="dessert-item" style="animation-delay: 2.5s;">
+          <img src="food/pizookie.jpeg" alt="pizookie" />
+          <label><input type="radio" name="dessert" value="pizookie" /> Pizookie</label>
+        </div>
+      </div>
+      <button class="button" onclick="saveDessertChoice()">Continue</button>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Retrieve the saved choice from localStorage
+        const savedChoice = localStorage.getItem("selectedDessert");
+        if (savedChoice) {
+          const radioButtons = document.querySelectorAll('input[name="dessert"]');
+          radioButtons.forEach(radio => {
+            if (radio.value === savedChoice) {
+              radio.checked = true;
+            }
+          });
+        }
+      });
+
+      function saveDessertChoice() {
+        // Save the selected choice to localStorage
+        const selectedDessert = document.querySelector('input[name="dessert"]:checked').value;
+        localStorage.setItem("selectedDessert", selectedDessert);
+        // Navigate to the next page
+        location.href = 'lastpage.html';
+      }
+    </script>
+  </body>
+</html>

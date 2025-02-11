@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day!</title>
+    <link rel="stylesheet" href="css/lastpage.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "p-e5WhnN6Ne_lM9jO",
+      });
+   })();
+</script>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Valentine's Day, My Love! ❤️</h1>
+        <p class="message">
+            From the moment we met, you've been the best thing in my life. Your kindness, your intelligence, and your love make every day special. 
+            I can't thank you enough for being my girlfriend. I love you more than words can express, and I always will! 💖
+        </p>
+        <div id="summary-card" class="card">
+            <h2>Your Choices:</h2>
+            <ul id="choices-list"></ul>
+            <button id="email-button">Email Choices</button>
+        </div>
+    </div>
+    <div class="hearts-container"></div>
+    <div class="iloveyou-container"></div>
+    <div class="fireworks-container"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to create a heart element
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = `${Math.random() * 100}vw`;
+                heart.style.animationDuration = `${Math.random() * 2 + 3}s`;
+                document.querySelector('.hearts-container').appendChild(heart);
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }
+
+            // Function to create an "I love you" element
+            function createILoveYou() {
+                const iloveyou = document.createElement('div');
+                iloveyou.classList.add('iloveyou');
+                iloveyou.style.left = `${Math.random() * 100}vw`;
+                iloveyou.style.animationDuration = `${Math.random() * 2 + 3}s`;
+                document.querySelector('.iloveyou-container').appendChild(iloveyou);
+                setTimeout(() => {
+                    iloveyou.remove();
+                }, 5000);
+            }
+
+            // Function to create a firework element
+            function createFirework() {
+                const firework = document.createElement('div');
+                firework.classList.add('firework');
+                firework.style.left = `${Math.random() * 100}vw`;
+                firework.style.animationDuration = `${Math.random() * 2 + 3}s`;
+                document.querySelector('.fireworks-container').appendChild(firework);
+                setTimeout(() => {
+                    firework.remove();
+                }, 5000);
+            }
+
+            // Create hearts, "I love you" messages, and fireworks at random intervals
+            setInterval(createHeart, 500);
+            setInterval(createILoveYou, 1000);
+            setInterval(createFirework, 1500);
+
+            // Retrieve and display the saved choices
+            const choicesList = document.getElementById('choices-list');
+            const selectedActivity = localStorage.getItem('selectedActivity');
+            const selectedFood = localStorage.getItem('selectedFood');
+            const selectedDessert = localStorage.getItem('selectedDessert');
+
+            if (selectedActivity) {
+                const activityItem = document.createElement('li');
+                activityItem.textContent = `Activity: ${selectedActivity}`;
+                choicesList.appendChild(activityItem);
+            }
+
+            if (selectedFood) {
+                const foodItem = document.createElement('li');
+                foodItem.textContent = `Food: ${selectedFood}`;
+                choicesList.appendChild(foodItem);
+            }
+
+            if (selectedDessert) {
+                const dessertItem = document.createElement('li');
+                dessertItem.textContent = `Dessert: ${selectedDessert}`;
+                choicesList.appendChild(dessertItem);
+            }
+
+            // Email button functionality
+            document.getElementById('email-button').addEventListener('click', function() {
+                const templateParams = {
+                    activity: selectedActivity,
+                    food: selectedFood,
+                    dessert: selectedDessert,
+                    to_email: 'mitharun16@gmail.com' // Replace with your email
+                };
+
+                emailjs.send('service_yq15ma7', 'template_qen7w5i', templateParams)
+                    .then(function(response) {
+                        alert('Email sent successfully!');
+                    }, function(error) {
+                        console.error('Failed to send email:', error);
+                        alert('Failed to send email. Please try again.');
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

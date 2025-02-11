@@ -1,0 +1,257 @@
+/* Restored Background */
+body {
+  background: 
+    linear-gradient(#ffe4e1, #ffe4e1), 
+    #ffe4e1 !important; /* Force background color */
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Dancing Script", cursive;
+  text-align: center;
+  position: relative; /* Ensure it's behind all animations */
+  z-index: -1;
+}
+
+/* Container Styling */
+.container {
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+h1 {
+  font-size: 50px;
+  color: #ff1493;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.message {
+  font-size: 20px;
+  color: #ff69b4;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+#summary-card {
+  margin-top: 20px;
+  width: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  animation: slideIn 1s ease-in-out;
+  display: inline-block;
+}
+
+#summary-card h2 {
+  font-size: 24px;
+  color: #ff1493;
+  margin-bottom: 10px;
+}
+
+#choices-list {
+  list-style-type: none;
+  padding: 0;
+  font-size: 20px;
+  color: #ff69b4;
+}
+
+#email-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #ffb6c1;
+  color: #ff1493;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#email-button:hover {
+  background-color: #ff69b4;
+  color: #ffb6c1;
+}
+
+.hearts-container, .iloveyou-container, .fireworks-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart, .iloveyou, .firework {
+  position: absolute;
+  bottom: 0;
+  animation: float 5s infinite;
+}
+
+.heart {
+  width: 20px;
+  height: 20px;
+  background-color: #ff69b4;
+  transform: rotate(45deg);
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff69b4;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: -10px;
+}
+
+.iloveyou {
+  font-size: 30px;
+  color: #ff69b4;
+  animation: float 5s infinite;
+}
+
+.firework {
+  width: 20px;
+  height: 20px;
+  background-color: #ffb6c1;
+  transform: rotate(45deg);
+}
+
+.firework::before,
+.firework::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ffb6c1;
+  border-radius: 50%;
+}
+
+.firework::before {
+  top: -10px;
+  left: 0;
+}
+
+.firework::after {
+  top: 0;
+  left: -10px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes firework {
+  0% { transform: translate(var(--x), var(--initialY)); width: var(--initialSize); opacity: 1; }
+  50% { width: 0.5vmin; opacity: 1; }
+  100% { width: var(--finalSize); opacity: 0; }
+}
+
+.firework {
+  --initialSize: 0.5vmin;
+  --finalSize: 45vmin;
+  --particleSize: 0.2vmin;
+  --color1: red;
+  --color2: orange;
+  --color3: yellow;
+  --color4: green;
+  --color5: blue;
+  --color6: purple;
+  --x: -50%;
+  --y: -30vmin;
+  --initialY: 60vmin;
+  
+  content: "";
+  animation: firework 2s infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, var(--y));
+  width: var(--initialSize);
+  aspect-ratio: 1;
+  background: 
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 50% 0%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 50%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 50% 100%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 0% 50%,
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 80% 90%,
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 95% 90%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 90% 70%;
+  
+  background-size: var(--initialSize) var(--initialSize);
+  background-repeat: no-repeat;
+}
+
+/* Additional Firework Variants */
+.firework:nth-child(2) {
+  --x: 30vmin;
+  --color1: pink;
+  --color2: violet;
+  --color3: fuchsia;
+  --color4: orchid;
+  --color5: plum;
+  --color6: lavender;
+  --finalSize: 40vmin;
+  left: 30%;
+  top: 60%;
+  animation-delay: -0.25s;
+}
+
+.firework:nth-child(3) {
+  --x: -30vmin;
+  --y: -50vmin;
+  --color1: cyan;
+  --color2: lightcyan;
+  --color3: lightblue;
+  --color4: PaleTurquoise;
+  --color5: SkyBlue;
+  --color6: lavender;
+  --finalSize: 35vmin;
+  left: 70%;
+  top: 60%;
+  animation-delay: -0.4s;
+}
